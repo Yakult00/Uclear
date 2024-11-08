@@ -38,7 +38,6 @@ def login():
 
     print("登录成功!")
     token = data['data']['token']
-    # update_config('token', token)
     return token
 
 
@@ -90,9 +89,6 @@ def 下单():
             break
         else:
             print('输入有误，请重新输入')
-    # wp_detergentGearId='0'
-    # wp_disinfectantGearId='0'
-    # deviceWashModelId='6'
 
 
     match  floor:
