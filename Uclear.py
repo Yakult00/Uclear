@@ -17,7 +17,6 @@ def login():
     response0 = requests.request("GET",
                                  url,headers=headers, data=payload)
     data = response0.json()
-    print(data)
     if data['code'] != 0:
         raise ValueError("验证码发送失败!", data)
     captcha = input("验证码发送成功！\n 请输入验证码：")
@@ -28,7 +27,6 @@ def login():
         data1 = f'{{"captcha": "{captcha}", "mobile": "{phone_number}"}}'
         response0 = requests.request("POST", "https://phoenix.ujing.online:443/api/v1/login", headers=headers, data=data1)
         data=response0.json()
-        print(data)
         if data['code'] == 0:
             break
         else:
