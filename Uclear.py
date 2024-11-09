@@ -11,8 +11,10 @@ def login():
     }
     phone_number = input("手机号：")
     url = f"https://phoenix.ujing.online:443/api/v1/captcha?mobile={phone_number}&sessionId=AFS_SWITCH_OFF&sig=AFS_SWITCH_OFF&token=AFS_SWITCH_OFF&type=1"
-    payload = base64.b64decode(
-        "eyJkZXZpY2VJZCI6IjQ3MzM2NDFhZDczZDQ5NGM2NmNmNWNmNjEyZjUxMDJjIiwiZGV2aWNlVHlwZUlkIjoxLCJzdG9yZUlkIjoiNjJiYmVmMTcwOGQ5MTIxMzk0ODQ0MTIyIiwidHlwZSI6MSwiZGV2aWNlV2FzaE1vZGVsSWQiOjV9")
+    payload = {
+  "aud": "your_api",
+  "iss": "https://your_issuer.com"
+}
 
     response0 = requests.request("GET",
                                  url,headers=headers, data=payload)
