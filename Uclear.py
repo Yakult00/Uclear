@@ -130,20 +130,19 @@ def run(token):
             break
         time.sleep(5)
 
-with open('token.json', 'r', encoding='utf-8') as f:
+while True:
+    with open('token.json', 'r', encoding='utf-8') as f:
     # 加载JSON数据到Python字典
     loaded_dict = json.load(f)
 
-# 从字典中获取token值
-token = loaded_dict['token']
-Authorization = 'Bearer ' + token
-headers = {
-    'Content-Length': '132',
-    'Content-Type': 'application/json',
-    'Authorization': f"{Authorization}"
-}
-
-while True:
+    # 从字典中获取token值
+    token = loaded_dict['token']
+    Authorization = 'Bearer ' + token
+    headers = {
+        'Content-Length': '132',
+        'Content-Type': 'application/json',
+        'Authorization': f"{Authorization}"
+    }
     if token != '':
         payload = 下单()
         if token != '':
